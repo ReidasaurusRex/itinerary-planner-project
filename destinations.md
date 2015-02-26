@@ -1,3 +1,7 @@
 - buffalo, ny
 - chicago, il
 - san francisco, ca
+- asbury park, nj
+- asheville, nc
+- new york, ny
+- flagstaff, az
