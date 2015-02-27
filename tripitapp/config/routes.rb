@@ -15,9 +15,6 @@ Rails.application.routes.draw do
 
   get 'access/attempt_login'
 
-<<<<<<< HEAD
-  end
-=======
 end
 
 
