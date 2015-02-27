@@ -6,6 +6,7 @@ class CreateItineraries < ActiveRecord::Migration
       t.string :origin
       t.string :destination
       t.string :name
+      t.integer :creator_id
 
       t.timestamps null: false
     end
