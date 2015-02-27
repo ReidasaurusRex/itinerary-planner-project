@@ -14,11 +14,11 @@ Itinerary.destroy_all
 Review.destroy_all
 User.destroy_all
 
-dave = User.create(:first_name => "Dave", :last_name => "Smith", :email => "DSmith@gmail.com", :username => "SmithD", :password => "1234", :password_digest => xx)
-sarah = User.create(:first_name => "Sarah", :last_name => "Smith", :email => "SSmith@gmail.com", :username => "SmithS", :password => "1234", :password_digest => xx)
-jimmy = User.create(:first_name => "Jimmy", :last_name => "Smith", :email => "JSmith@gmail.com", :username => "SmithJ", :password => "1234", :password_digest => xx)
-egbhert = User.create(:first_name => "Egbhert", :last_name => "Smith", :email => "ESmith@gmail.com", :username => "SmithE", :password => "1234", :password_digest => xx)
-tammy = User.create(:first_name => "Tammy", :last_name => "Smith", :email => "TSmith@gmail.com", :username => "SmithT", :password => "1234", :password_digest => xx)
+dave = User.create(:first_name => "Dave", :last_name => "Smith", :email => "DSmith@gmail.com", :username => "SmithD", :password => "1234")
+sarah = User.create(:first_name => "Sarah", :last_name => "Smith", :email => "SSmith@gmail.com", :username => "SmithS", :password => "1234")
+jimmy = User.create(:first_name => "Jimmy", :last_name => "Smith", :email => "JSmith@gmail.com", :username => "SmithJ", :password => "1234")
+egbhert = User.create(:first_name => "Egbhert", :last_name => "Smith", :email => "ESmith@gmail.com", :username => "SmithE", :password => "1234")
+tammy = User.create(:first_name => "Tammy", :last_name => "Smith", :email => "TSmith@gmail.com", :username => "SmithT", :password => "1234")
 
 rome = Destination.create(:location => "Italy", :name => "Rome", :date => "2015-04-11")
 moscow = Destination.create(:location => "Russia", :name => "Moscow", :date => "2015-10-11")
@@ -36,14 +36,14 @@ dave_review = Review.create(:content => "Dave is my best bro. We totally got dru
 tammy_review = Review.create(:content => "Traveling with Tammy was like traveling with a wet blanket. Nothing was good enough for her.")
 rome_review = Review.create(:content => "Rome is like LA with ruins.")
 
-europe.origin << sanfrancisco
-europe.destination << rome
-europe.destination << moscow
+# europe.origin << sanfrancisco
+# europe.destination << rome
+# europe.destination << moscow
 
-north_carolina.origin << sanfrancisco
-north_carolina.destination << greenville
-north_carolina.destination << hillsboro
-north_carolina.destination << morhead
+# north_carolina.origin << sanfrancisco
+# north_carolina.destination << greenville
+# north_carolina.destination << hillsboro
+# north_carolina.destination << morhead
 
 
 
