@@ -1,0 +1,8 @@
+routes:	
+
+
+
+
+
+access controller: manage user signing in // store session id // redirect
+user controller: 
