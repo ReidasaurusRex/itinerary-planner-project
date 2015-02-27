@@ -7,13 +7,15 @@ Rails.application.routes.draw do
 
   get 'users/edit'
 
+  put 'users/edit'
+
   get 'access/login'
 
   get 'access/signup'
 
-  get 'access/create'
+  post 'access/create'
 
-  get 'access/attempt_login'
+  post 'access/attempt_login'
 
 end
 
