@@ -34,7 +34,6 @@ dave_review = Review.create(:content => "Dave is my best bro. We totally got dru
 tammy_review = Review.create(:content => "Traveling with Tammy was like traveling with a wet blanket. Nothing was good enough for her.")
 rome_review = Review.create(:content => "Rome is like LA with ruins.")
 
-
 join.creator_id << dave
 join.itinerary_id << europe
 join.destination_id << sanfrancisco
