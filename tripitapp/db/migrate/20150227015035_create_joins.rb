@@ -1,6 +1,6 @@
-class CreateCompanions < ActiveRecord::Migration
+class CreateJoins < ActiveRecord::Migration
   def change
-    create_table :companions do |t|
+    create_table :joins do |t|
       t.integer :user_id
       t.integer :itinerary_id
       t.integer :destination_id

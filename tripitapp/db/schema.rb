@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150227015641) do
     t.string   "origin"
     t.string   "destination"
     t.string   "name"
+    t.integer  "creator_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
