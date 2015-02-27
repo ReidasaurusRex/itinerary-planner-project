@@ -6,9 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-
-Companion.destroy_all
+Joins.destroy_all
 Destination.destroy_all
 Itinerary.destroy_all
 Review.destroy_all
@@ -27,8 +25,8 @@ hillsboro = Destination.create(:location => "NC", :name => "Hillsboro", :date =>
 morhead = Destination.create(:location => "NC", :name => "Morhead", :date => "2015-05-01")
 sanfrancisco = Destination.create(:location => "CA", :name => "San Francisco", :date => "2015-04-10")
 
-europe = Itinerary.create(:start_date => "2015-04-10", :end_date => "2016-04-09") #:origin => sanfrancisco.location, :destination => moscow.location
-north_carolina = Itinerary.create(:start_date => "2015-04-10", :end_date => "2015-05-10") #:origin => sanfrancisco.location, :destination => morhead.location
+europe = Itinerary.create(:start_date => "2015-04-10", :end_date => "2016-04-09")
+north_carolina = Itinerary.create(:start_date => "2015-04-10", :end_date => "2015-05-10")
 
 nc_review1 = Review.create(:content => "NC was cool when I was a kid, now its totally lame")
 nc_review2 = Review.create(:content => "Best trip ever! We totally saw things.")
@@ -36,18 +34,25 @@ dave_review = Review.create(:content => "Dave is my best bro. We totally got dru
 tammy_review = Review.create(:content => "Traveling with Tammy was like traveling with a wet blanket. Nothing was good enough for her.")
 rome_review = Review.create(:content => "Rome is like LA with ruins.")
 
-# europe.origin << sanfrancisco
-# europe.destination << rome
-# europe.destination << moscow
+join.creator_id << dave
+join.itinerary_id << europe
+join.destination_id << sanfrancisco
+join.destination_id << rome
+join.destination_id << moscow
 
-# north_carolina.origin << sanfrancisco
-# north_carolina.destination << greenville
-# north_carolina.destination << hillsboro
-# north_carolina.destination << morhead
+itinerray[0].destination[0].user << dave
+itinerray[0].destination[1].user << dave
+itinerray[0].destination[2].user << dave
+itinerray[0].destination[0].user << sarah
+itinerray[0].destination[0].user << egbhert
+itinerray[0].destination[1].user << egbhert
 
+join.createor_id << jimmy
+join.itinerary_id << north_carolina
+join.destination_id << sanfrancisco
+join.destination_id << greenville
+join.destination_id << morhead
+join.destination_id << hillsboro
 
-
-
-#dates: 1986-05-30
-
-#lebowski.actors << goodman
+itinerray[1].destination[0].user << tammy
+itinerray[1].destination[2].user << tammy
