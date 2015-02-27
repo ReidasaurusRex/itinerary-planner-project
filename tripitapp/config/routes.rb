@@ -43,5 +43,3 @@ end
 #              access_signup GET    /access/signup(.:format)                                   access#signup
 #              access_create GET    /access/create(.:format)                                   access#create
 #       access_attempt_login GET    /access/attempt_login(.:format)                            access#attempt_login
-
->>>>>>> 1a189b778faf1053f9dc356724a469d6facd47ba
