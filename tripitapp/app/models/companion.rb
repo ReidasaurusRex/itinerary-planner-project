@@ -1,4 +1,4 @@
 class Companion < ActiveRecord::Base
-  belongs_to :itineraries
-  belongs_to :users
+  belongs_to :itinerary
+  belongs_to :user
 end
