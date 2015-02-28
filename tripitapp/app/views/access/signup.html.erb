@@ -1,2 +1,23 @@
-<h1>Access#signup</h1>
-<p>Find me in app/views/access/signup.html.erb</p>
+<h1>Signup</h1>
+
+<%= form_for(@user, url: signup_path) do |f| %>
+
+  <p>
+
+    FirstName: <%= f.text_field(:first_name, autofocus: true, required: true) %>
+    <br>
+    LastName: <%= f.text_field(:last_name, required: true) %>
+    <br>
+    Email: <%= f.text_field(:email, required: true) %>
+    <br>
+    UserName: <%= f.text_field(:username, required: true) %>
+  </p>
+  <p>
+    Password: <%= password_field(:password, required: true) %>
+  </p>
+  <p>
+    <%= f.submit("Signup"), users_show_path %>
+  </p>
+  <%= link_to "Have an account already? Login here", login_path %>
+
+<% end %>

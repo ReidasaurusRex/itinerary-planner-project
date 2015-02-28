@@ -40,12 +40,12 @@ join.destination_id << sanfrancisco
 join.destination_id << rome
 join.destination_id << moscow
 
-itinerray[0].destination[0].user << dave
-itinerray[0].destination[1].user << dave
-itinerray[0].destination[2].user << dave
-itinerray[0].destination[0].user << sarah
-itinerray[0].destination[0].user << egbhert
-itinerray[0].destination[1].user << egbhert
+itinerary[0].destination[0].user << dave
+itinerary[0].destination[1].user << dave
+itinerary[0].destination[2].user << dave
+itinerary[0].destination[0].user << sarah
+itinerary[0].destination[0].user << egbhert
+itinerary[0].destination[1].user << egbhert
 
 join.createor_id << jimmy
 join.itinerary_id << north_carolina

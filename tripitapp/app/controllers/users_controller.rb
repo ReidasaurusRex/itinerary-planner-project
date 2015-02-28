@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-before_action :find_user, only: [:edit, :update]
-before_action :user_params, only: [:edit, :user_edit]
+before_action :find_user, only: [:user_edit, :update]
+before_action :user_params, only: [:user_edit, :update]
 
   def index          #get 'users/show', as: :user
     @users = Users.all
