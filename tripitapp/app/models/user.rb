@@ -5,3 +5,4 @@ class User < ActiveRecord::Base
   has_many :itineraries, through: :companions
   has_many :destinations, through: :companions
 end
+ 
