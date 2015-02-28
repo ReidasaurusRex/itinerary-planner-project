@@ -3,17 +3,19 @@ Rails.application.routes.draw do
     resources :destinations
   end
 
-  get 'users/show'
+  root 'access#login'
 
-  get 'users/edit'
+  get 'users/show', as: :user
+
+  get 'users/edit', as: :user_edit
 
   put 'users/edit'
 
-  get 'access/login'
+  get 'access/login', as: :login
 
-  get 'access/signup'
+  get 'access/signup', as: :signup
 
-  post 'access/create'
+  post 'access/create', as: :create_user
 
   post 'access/attempt_login'
 
@@ -44,4 +46,3 @@ end
 #              access_create GET    /access/create(.:format)                                   access#create
 #       access_attempt_login GET    /access/attempt_login(.:format)                            access#attempt_login
 
->>>>>>> 1a189b778faf1053f9dc356724a469d6facd47ba
