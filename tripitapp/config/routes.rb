@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   get 'users/show', as: :user
 
-  get 'users/edit', as: :user_edit
+  get 'user/edit', as: :user_edit
 
-  put 'users/edit'
+  put 'user/edit'
 
   get 'access/login', as: :login
 
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   post 'access/create', as: :create_user
 
   post 'access/attempt_login'
+
+  delete 'logout', to: "access#logout", as: :logout
 
 end
 

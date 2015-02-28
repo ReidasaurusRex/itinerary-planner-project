@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def show
-    #
+    #user           /users/show
   end
 
   def edit
-    #
+    #user_edit      /users/edit
   end
 
   def remove
