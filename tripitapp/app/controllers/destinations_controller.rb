@@ -1,22 +1,28 @@
 class DestinationsController < ApplicationController
   before_action :find_itin
+  before_action except: [:new, :create] do 
+    find_destination @itinerary
+  end
 
   def new
   end
 
   def create
     @itinerary.destinations.create destination_params 
+    redirect_to "/itineraries/#{@itinerary.id}"
   end
 
   def show
-    find_destination @itinerary
+    binding.pry
   end
 
   def edit
-    find_destination @itinerary
+    redirect_to "/itineraries/#{@itinerary.id}/destinations/#{@destination.id}"
   end
 
   def delete
+    @itinerary.destinations.(@destination)
+    redirect_to "/itineraries/#{@itinerary.id}"
   end
 
   private
