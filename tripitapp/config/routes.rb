@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'user/edit', as: :user_edit
 
-  put 'user/edit'
+  put 'user/update'
 
   get 'access/login', as: :login
 
