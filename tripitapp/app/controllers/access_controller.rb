@@ -1,8 +1,23 @@
 class AccessController < ApplicationController
 
-before_action :prevent_login_signup, only: [] #__root route__, __login_path__
-before_action :mandatory_login, only: [] #ALL THE ROUTES!!
-
+before_action :prevent_login_signup, only: [
+  :access_login,
+  :access_signup,
+  :access_create,
+  :access_attempt_login
+]
+before_action :mandatory_login, only: [
+    :itinerary_destinations,
+    :new_itinerary_destination, 
+    :edit_itinerary_destination, 
+    :itinerary_destination, 
+    :itineraries,                 #index
+    :new_itinerary, 
+    :edit_itinerary, 
+    :itinerary,                   #show
+    :users_show, 
+    :users_edit
+]
 
   def signup
     @user = User.new
@@ -14,10 +29,10 @@ before_action :mandatory_login, only: [] #ALL THE ROUTES!!
   def create
     @user = User.create user_params
     if @user.save
-      session[:user_id] - @user.user_id
-      #redirect_to __root route?__, notice: "User created successfully, please log in."
+      session[:user_id] = @user.user_id
+      redirect_to access_login_path, notice: "User created successfully, please log in."
     else
-      #redirect_to __login_path__, notice: "Could not create user, please try again."
+      redirect_to access_signup_path, notice: "Could not create user, please try again."
     end
   end
 
@@ -28,20 +43,38 @@ before_action :mandatory_login, only: [] #ALL THE ROUTES!!
         authorized_user = found_user.authenticate(params[:password])
         if authorized_user
           session[:user_id] = authorized_user.id
-          #redirect_to __Itinerary Index, notice: "You are successfully logged in"
+          redirect_to itineraries_path, notice: "You are successfully logged in" #I think we need a users path which displays their itineraries.
         else
-          #redirect_to __login_path__, notice: "Invalid username/password"
+          redirect_to access_login_path, notice: "Invalid username/password"
         end
       else
-        #redirect_to __login_path__, notice: "Invalid username/password"
+        redirect_to access_login_path, notice: "Invalid username/password"
       end
     else
-      #redirect_to __login_path__, notice: "Please enter username/password"
+      redirect_to access_login_path, notice: "Please enter username/password"
     end
   end
 
   def logout
     session[:user_id] = nil
-    #redirect_to __login_path__
+    redirect_to access_login_path, notice: "Thanks for logging out. Check back later"
   end
 end
+
+private
+
+def mandatory_login
+  if session[:user_id].nil?
+    redirect_to access_login_path
+  end
+end
+
+def prevent_login_signup
+  if session[:user_id]
+    redirect_to users_show_path
+  end
+end
+
+
+
+
