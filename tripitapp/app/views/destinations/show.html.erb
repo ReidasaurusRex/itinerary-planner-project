@@ -1,2 +1,11 @@
-<h1>Destinations#show</h1>
-<p>Find me in app/views/destinations/show.html.erb</p>
+<h1><%= @itinerary.name %></h1>
+<br>
+<h2><%= @destination.name %></h2>
+<br>
+<h2>Users</h2>
+<% @destination.users.each do |user| %>
+    <h3><%= link_to "#{user.first_name} #{user.last_name}", user %>
+    <h4><%= user.email %></h4>
+<% end %>
+
+  

@@ -1,2 +1,10 @@
-<h1>Destinations#new</h1>
-<p>Find me in app/views/destinations/new.html.erb</p>
+<h1>Add a destination</h1>
+ <p>
+   <%= form_for Destination.new, url: {action: "create"} do |f| %>
+    <%= f.text_field :name, placeholder: "Destination Name" %><br>
+    <%= f.text_field :location, placeholder: "Destination Location" %><br>
+    <%= f.date_field :date, placeholder: "YYYY-MM-DD"%><br>
+    <%= f.submit "Create" %>
+  <% end %>
+
+ </p>
