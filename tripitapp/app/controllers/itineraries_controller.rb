@@ -31,18 +31,18 @@ class ItinerariesController < ApplicationController
   end
   end
 
-  def add_destination
-    destination = Destination.find(destination_params[:id])
-    unless @itinerary.destinations.include? destination
-      @itinerary.destinations << destination
-    end
-    redirect_to @itinerary
-  end
+  # def add_destination
+  #   destination = Destination.find(destination_params[:id])
+  #   unless @itinerary.destinations.include? destination
+  #     @itinerary.destinations << destination
+  #   end
+  #   redirect_to @itinerary
+  # end
 
-  def remove_destination
-    @itinerary.destination.delete(Destination.find(params[:destination_id]))
-    redirect_to @itinerary 
-  end
+  # def remove_destination
+  #   @itinerary.destination.delete(Destination.find(params[:destination_id]))
+  #   redirect_to @itinerary 
+  # end
 
   private
   def itinerary_params

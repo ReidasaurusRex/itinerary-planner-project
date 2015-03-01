@@ -13,15 +13,16 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    binding.pry
   end
 
   def edit
-    redirect_to "/itineraries/#{@itinerary.id}/destinations/#{@destination.id}"
+  end
+
+  def update
+    redirect_to "/itineraries/#{@itinerary.id}"
   end
 
   def delete
-    @itinerary.destinations.(@destination)
     redirect_to "/itineraries/#{@itinerary.id}"
   end
 

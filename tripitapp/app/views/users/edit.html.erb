@@ -1,2 +1,8 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit <%= @user.first_name %></h1>
+
+  <%= form_for @user do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.email :email %>
+    <%= f.username :username %>
+    <% end %>

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Joins.destroy_all
+Join.destroy_all
 Destination.destroy_all
 Itinerary.destroy_all
 Review.destroy_all
@@ -25,7 +25,7 @@ hillsboro = Destination.create(:location => "NC", :name => "Hillsboro", :date =>
 morhead = Destination.create(:location => "NC", :name => "Morhead", :date => "2015-05-01")
 sanfrancisco = Destination.create(:location => "CA", :name => "San Francisco", :date => "2015-04-10")
 
-europe = Itinerary.create(:start_date => "2015-04-10", :end_date => "2016-04-09")
+europe = Itinerary.create(name: "Europe", origin: "Portugal", destination: "Finland", :start_date => "2015-04-10", :end_date => "2016-04-09")
 north_carolina = Itinerary.create(:start_date => "2015-04-10", :end_date => "2015-05-10")
 
 nc_review1 = Review.create(:content => "NC was cool when I was a kid, now its totally lame")
@@ -34,6 +34,7 @@ dave_review = Review.create(:content => "Dave is my best bro. We totally got dru
 tammy_review = Review.create(:content => "Traveling with Tammy was like traveling with a wet blanket. Nothing was good enough for her.")
 rome_review = Review.create(:content => "Rome is like LA with ruins.")
 
+<<<<<<< HEAD
 join.creator_id << dave
 join.itinerary_id << europe
 join.destination_id << sanfrancisco
@@ -56,3 +57,31 @@ join.destination_id << hillsboro
 
 itinerray[1].destination[0].user << tammy
 itinerray[1].destination[2].user << tammy
+=======
+
+europe.destinations << rome
+europe.destinations << moscow
+north_carolina.destinations << greenville 
+north_carolina.destinations << hillsboro
+north_carolina.destinations << morhead
+
+europe.users << jimmy
+europe.users << sarah
+north_carolina.users << egbhert
+north_carolina.users << tammy
+north_carolina.users << dave
+
+europe.destinations[0].users << jimmy
+europe.destinations[0].users << sarah
+europe.destinations[1].users << jimmy
+
+north_carolina.destinations[0].users << tammy
+north_carolina.destinations[0].users << dave
+north_carolina.destinations[1].users << tammy
+north_carolina.destinations[1].users << dave
+north_carolina.destinations[2].users << tammy
+north_carolina.destinations[2].users << dave 
+north_carolina.destinations[2].users << egbhert
+
+
+>>>>>>> 9bb44ba618c861dc7d61bcb5c648aa0cd719fe16
