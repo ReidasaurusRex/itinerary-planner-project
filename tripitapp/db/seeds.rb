@@ -59,4 +59,3 @@ north_carolina.destinations[2].users << tammy
 north_carolina.destinations[2].users << dave 
 north_carolina.destinations[2].users << egbhert
 
-

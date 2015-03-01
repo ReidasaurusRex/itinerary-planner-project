@@ -12,6 +12,11 @@ class AccessController < ApplicationController
     :users_show, 
     :users_edit
   ]
+  # before_action :user_params, only: [
+  #   :create_user, 
+  #   :login, 
+  #   :access_attempt_login
+  # ]
   
   before_action :prevent_login_signup, only: [:signup, :login]
 
@@ -26,10 +31,27 @@ class AccessController < ApplicationController
     @user = User.new
   end
 
+  def login               #/access/login GET
+
+  end
+
+  def create_user         #/access/create POST
+    @user = User.create user_params
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to login_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
+    else
+      redirect_to access_signup_path, notice: "Could not create user, please try again."
+    end
+  end
+
+  def access_attempt_login
+
   def login               #get 'access/login', as: :login
   end
 
   def access_attempt_login   #post 'access/attempt_login'
+
     if params[:user_name].present? && params[:password].present?
       found_user = User.where(username: params[:username]).first
       if found_user
@@ -63,13 +85,17 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     redirect_to access_login_path, notice: "Thanks for logging out. Check back later"
   end
+  end
 
 end
 
 private
 
 def user_params
+  params.require(:user).permit(:username, :password, :password_digest)
+
   params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_digest)
+
 end
 
 def mandatory_login
