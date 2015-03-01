@@ -1,6 +1,9 @@
 class ItinerariesController < ApplicationController
+  before_action :mandatory_login
+
   def index
-    @itineraries = Itinerary.all 
+    @itineraries = Itinerary.all
+    @found_user = User.find(session[:user_id]) 
   end
 
   def new

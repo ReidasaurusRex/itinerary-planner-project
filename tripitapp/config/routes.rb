@@ -49,8 +49,7 @@ end
 #                     signup GET    /access/signup(.:format)                                   access#signup
 #                create_user POST   /access/create(.:format)                                   access#create
 #       access_attempt_login POST   /access/attempt_login(.:format)                            access#attempt_login
-<<<<<<< HEAD
+
 #                     logout DELETE /logout(.:format)                                          access#logout
-=======
 #                     logout DELETE /logout(.:format)                                          access#logout
->>>>>>> 9bb44ba618c861dc7d61bcb5c648aa0cd719fe16
+
