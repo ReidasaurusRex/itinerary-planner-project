@@ -2,21 +2,21 @@
 
 <%= form_tag(login_path) do %>
 
-<%= form_for User.new, url: {action: "access_attempt_login"} do |f| %>
-<%= f.label(:username) %>
-<%= f.text_field(:username, autofocus: true) %>
-<%= form_tag(login_attempt_path, method: "post") do %>
+  <%= form_for User.new, url: {action: "access_attempt_login"} do |f| %>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username, autofocus: true) %>
+  <%= form_tag(login_attempt_path, method: "post") do %>
 
-<%= label_tag(:username) %>
-<%= text_field_tag(:username, params[:username], autofocus: true) %>
+    <%= label_tag(:username) %>
+    <%= text_field_tag(:username, params[:username], autofocus: true) %>
 
-<br><br>
+    <br><br>
 
-<%= f.submit("Log in", class: "btn btn-primary") %>\
+    <%= f.submit("Log in", class: "btn btn-primary") %>
 
-<br>
+    <br>
 
-<%= link_to "Don't have an account? Sign up here", signup_path %>
-<% end %>
-<% end %>
+    <%= link_to "Don't have an account? Sign up here", signup_path %>
+    <% end %>
+  <% end %>
 <% end %>
