@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'access/signup', as: :signup
 
-  post 'access/create', as: :create_user
+  post 'access/signup', to: "access#create_user", as: :signup_user
 
   post 'access/attempt_login'
 
