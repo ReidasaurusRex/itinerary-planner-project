@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'access/signup', to: "access#create_user", as: :signup_user
 
-  post 'access/attempt_login'
+  post 'access/attempt_login', to: "access#access_attempt_login", as: :login_attempt 
 
   delete 'logout', to: "access#logout", as: :logout
 

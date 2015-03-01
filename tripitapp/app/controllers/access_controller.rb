@@ -19,23 +19,19 @@ class AccessController < ApplicationController
     end
   end
 
-
-  def access_attempt_login
-  end
-
   def login               #get 'access/login', as: :login
   end
 
   def access_attempt_login   #post 'access/attempt_login'
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_digest)
-
-    if params[:user_name].present? && params[:password].present?
-      found_user = User.where(username: params[:username]).first
+    binding.pry
+    if params[:user][:username].present? && params[:user][:password].present?
+      found_user = User.where(username: params[:user][:username]).first
       if found_user
-        authorized_user = found_user.authenticate(params[:password])
+        authorized_user = found_user.authenticate(params[:user][:password])
         if authorized_user
           session[:user_id] = authorized_user.id
-          redirect_to user_path, notice: "You are successfully logged in" #I think we need a users path which displays their itineraries.
+          redirect_to itineraries_path, notice: "You are successfully logged in" #I think we need a users path which displays their itineraries.
         else
           redirect_to login_path, notice: "Invalid username/password"
         end
