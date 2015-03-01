@@ -24,7 +24,6 @@ class AccessController < ApplicationController
 
   def access_attempt_login   #post 'access/attempt_login'
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_digest)
-    binding.pry
     if params[:user][:username].present? && params[:user][:password].present?
       found_user = User.where(username: params[:user][:username]).first
       if found_user
