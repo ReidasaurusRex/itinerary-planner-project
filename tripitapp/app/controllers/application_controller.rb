@@ -29,12 +29,12 @@ private
 
 def mandatory_login
   if session[:user_id].nil?
-    redirect_to access_login_path
+    redirect_to login_path
   end
 end
 
 def prevent_login_signup
   if session[:user_id]
-    redirect_to users_show_path
+    redirect_to "/users/#{@user.id}"
   end
 end

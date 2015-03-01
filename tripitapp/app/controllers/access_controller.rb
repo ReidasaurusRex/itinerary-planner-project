@@ -39,13 +39,14 @@ class AccessController < ApplicationController
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to login_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
+      redirect_to user_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
     else
       redirect_to access_signup_path, notice: "Could not create user, please try again."
     end
   end
 
   def access_attempt_login
+  end
 
   def login               #get 'access/login', as: :login
   end
@@ -58,15 +59,15 @@ class AccessController < ApplicationController
         authorized_user = found_user.authenticate(params[:password])
         if authorized_user
           session[:user_id] = authorized_user.id
-          redirect_to user_show_path, notice: "You are successfully logged in" #I think we need a users path which displays their itineraries.
+          redirect_to user_path, notice: "You are successfully logged in" #I think we need a users path which displays their itineraries.
         else
-          redirect_to access_login_path, notice: "Invalid username/password"
+          redirect_to login_path, notice: "Invalid username/password"
         end
       else
-        redirect_to access_login_path, notice: "Invalid username/password"
+        redirect_to login_path, notice: "Invalid username/password"
       end
     else
-      redirect_to access_login_path, notice: "Please enter username/password"
+      redirect_to login_path, notice: "Please enter username/password"
     end
   end
 
@@ -83,9 +84,9 @@ class AccessController < ApplicationController
 
   def logout                 #delete 'logout', to: "access#logout", as: :logout
     session[:user_id] = nil
-    redirect_to access_login_path, notice: "Thanks for logging out. Check back later"
+    redirect_to login_path, notice: "Thanks for logging out. Check back later"
   end
-  end
+
 
 end
 
@@ -100,12 +101,7 @@ end
 
 def mandatory_login
   if session[:user_id].nil?
-    redirect_to access_login_path
+    redirect_to login_path
   end
 end
 
-def prevent_login_singup
-  if session[] != nil
-    redirect_to user_show_path
-  end
-end
