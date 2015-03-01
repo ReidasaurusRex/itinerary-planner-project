@@ -57,8 +57,6 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     redirect_to login_path, notice: "Thanks for logging out. Check back later"
   end
-
-
 end
 
 private
