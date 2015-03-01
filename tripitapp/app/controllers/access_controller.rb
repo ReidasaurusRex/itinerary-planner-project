@@ -13,10 +13,17 @@ class AccessController < ApplicationController
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to login_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
+      redirect_to user_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
     else
       redirect_to signup_path, notice: "Could not create user, please try again."
     end
+  end
+
+
+  def access_attempt_login
+  end
+
+  def login               #get 'access/login', as: :login
   end
 
   def access_attempt_login   #post 'access/attempt_login'
@@ -54,7 +61,6 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     redirect_to login_path, notice: "Thanks for logging out. Check back later"
   end
-
 end
 
 private
