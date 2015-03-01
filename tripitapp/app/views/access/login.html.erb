@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-<h1>Login Page</h1>
-
-<%= form_tag(login_path) do %>
-=======
 <h1>Login Page/Root Route</h1>
 
 <%= form_tag(access_attempt_login_path, method: "post") do %>
->>>>>>> 9bb44ba618c861dc7d61bcb5c648aa0cd719fe16
   <%= label_tag(:username) %>
   <%= text_field_tag(:username, params[:username], autofocus: true) %>
 

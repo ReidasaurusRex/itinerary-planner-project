@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'access#login'
 
-  get 'users/:id', to: "users#show", as: :user_show
+  get 'users/:id', to: "users#show", as: :user
 
   get 'users/:id/edit', to: "users#user_edit", as: :user_edit
 

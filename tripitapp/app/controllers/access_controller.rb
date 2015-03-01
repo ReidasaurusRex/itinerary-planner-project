@@ -39,7 +39,7 @@ class AccessController < ApplicationController
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
+      redirect_to login_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
     else
       redirect_to access_signup_path, notice: "Could not create user, please try again."
     end
