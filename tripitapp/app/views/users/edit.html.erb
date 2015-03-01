@@ -1,8 +1,8 @@
 <h1>Edit <%= @user.first_name %></h1>
 
   <%= form_for @user do |f| %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.email :email %>
-    <%= f.username :username %>
+    <%= @user.first_name %>: <%= f.text_field :first_name %>
+    <%= @user.last_name %>: <%= f.text_field :last_name %>
+    <%= @user.email %>: <%= f.text_field :email %>
+    <%= @user.username %>: <%= f.text_field :username %>
     <% end %>
