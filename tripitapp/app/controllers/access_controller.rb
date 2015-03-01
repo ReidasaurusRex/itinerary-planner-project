@@ -1,6 +1,22 @@
 class AccessController < ApplicationController
 
-before_action :user_params, only: [:create_user, :login, :access_attempt_login]
+  before_action :mandatory_login, only: [
+    :itinerary_destinations,
+    :new_itinerary_destination, 
+    :edit_itinerary_destination, 
+    :itinerary_destination, 
+    :itineraries,                 #index
+    :new_itinerary, 
+    :edit_itinerary, 
+    :itinerary,                   #show
+    :users_show, 
+    :users_edit
+  ]
+  # before_action :user_params, only: [
+  #   :create_user, 
+  #   :login, 
+  #   :access_attempt_login
+  # ]
 
 
   def signup              #/accesss/signup GET
@@ -8,13 +24,14 @@ before_action :user_params, only: [:create_user, :login, :access_attempt_login]
   end
 
   def login               #/access/login GET
+
   end
 
   def create_user         #/access/create POST
     @user = User.create user_params
     if @user.save
       session[:user_id] = @user.id
-      redirect_to access_login_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
+      redirect_to user_path, notice: "User created successfully, please log in."   #redirect logged in && to home/index-y page
     else
       redirect_to access_signup_path, notice: "Could not create user, please try again."
     end
@@ -43,11 +60,17 @@ before_action :user_params, only: [:create_user, :login, :access_attempt_login]
     session[:user_id] = nil
     redirect_to access_login_path, notice: "Thanks for logging out. Check back later"
   end
+end
 
 private
 
-  def user_params
-    params.require(:user).permit(:username, :password, :password_digest)
+def user_params
+  params.require(:user).permit(:username, :password, :password_digest)
+end
+
+def mandatory_login
+  if session[:user_id].nil?
+    redirect_to access_login_path
   end
 
 end
