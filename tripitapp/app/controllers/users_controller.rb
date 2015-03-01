@@ -9,6 +9,7 @@ before_action :user_params, only: [:user_edit, :update]
   end
 
   def user_edit     #get 'users/:id/edit', to: "users#user_edit", as: :user_edit
+    @user = User.find(params[:id])
   end
 
   def show            #get 'users/:id', to: "users#show", as: :user_show
@@ -18,7 +19,7 @@ before_action :user_params, only: [:user_edit, :update]
 
   def update          #put 'users/:id/edit', to: "users#update"
     @user.update_attributes
-    redirect_to @user
+    redirect_to user_path
   end
 
 
@@ -30,7 +31,7 @@ before_action :user_params, only: [:user_edit, :update]
   end
 
   def user_params
-    params.require(@user).permit(:first_name, :last_name, :username, :email)
+    params.require(:user).permit(:first_name, :last_name, :username, :email)
   end
  
 end
