@@ -34,30 +34,6 @@ dave_review = Review.create(:content => "Dave is my best bro. We totally got dru
 tammy_review = Review.create(:content => "Traveling with Tammy was like traveling with a wet blanket. Nothing was good enough for her.")
 rome_review = Review.create(:content => "Rome is like LA with ruins.")
 
-<<<<<<< HEAD
-join.creator_id << dave
-join.itinerary_id << europe
-join.destination_id << sanfrancisco
-join.destination_id << rome
-join.destination_id << moscow
-
-itinerary[0].destination[0].user << dave
-itinerary[0].destination[1].user << dave
-itinerary[0].destination[2].user << dave
-itinerary[0].destination[0].user << sarah
-itinerary[0].destination[0].user << egbhert
-itinerary[0].destination[1].user << egbhert
-
-join.createor_id << jimmy
-join.itinerary_id << north_carolina
-join.destination_id << sanfrancisco
-join.destination_id << greenville
-join.destination_id << morhead
-join.destination_id << hillsboro
-
-itinerray[1].destination[0].user << tammy
-itinerray[1].destination[2].user << tammy
-=======
 
 europe.destinations << rome
 europe.destinations << moscow
@@ -83,5 +59,3 @@ north_carolina.destinations[2].users << tammy
 north_carolina.destinations[2].users << dave 
 north_carolina.destinations[2].users << egbhert
 
-
->>>>>>> 9bb44ba618c861dc7d61bcb5c648aa0cd719fe16

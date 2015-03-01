@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'access#login'
 
-  get 'users/:id', to: "users#show", as: :user_show
+  get 'users/:id', to: "users#show", as: :user
 
   get 'users/:id/edit', to: "users#user_edit", as: :user_edit
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post 'access/signup', to: "access#create_user", as: :signup_user
 
-  post 'access/attempt_login'
+  post 'access/attempt_login', to: "access#access_attempt_login", as: :login_attempt 
 
   delete 'logout', to: "access#logout", as: :logout
 
@@ -49,7 +49,11 @@ end
 #                     signup GET    /access/signup(.:format)                                   access#signup
 #                create_user POST   /access/create(.:format)                                   access#create
 #       access_attempt_login POST   /access/attempt_login(.:format)                            access#attempt_login
+<<<<<<< HEAD
 
 #                     logout DELETE /logout(.:format)                                          access#logout
 #                     logout DELETE /logout(.:format)                                          access#logout
+=======
+#                     logout DELETE /logout(.:format)                                          access#logout
+>>>>>>> 5cf0b123a32cf3a1016ae2256b534c6bd5bfa856
 

@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
 
-before_action :find_user, only: [:user_edit, :update]
+before_action :find_user, only: [:user_edit, :show, :update]
 before_action :user_params, only: [:user_edit, :update]
-
-before_action :find_user, only: [:show, :user_edit]
-before_action :user_params, only: [:user_edit]
 
 
   def index          
@@ -27,12 +24,13 @@ before_action :user_params, only: [:user_edit]
 
 
   private
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email) #???"param is missing or the value is empty". neither is true
-  end
 
   def find_user
     @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(@user).permit(:first_name, :last_name, :username, :email)
+  end
+ 
 end

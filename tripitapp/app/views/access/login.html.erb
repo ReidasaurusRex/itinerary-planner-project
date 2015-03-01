@@ -1,9 +1,11 @@
-
 <h1>Login Page</h1>
 
 <%= form_tag(login_path) do %>
 
 <h1>Login Page/Root Route</h1>
+<%= form_for User.new, url: {action: "access_attempt_login"} do |f| %>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username, autofocus: true) %>
 
 <%= form_tag(access_attempt_login_path, method: "post") do %>
 
@@ -12,8 +14,12 @@
 
   <%= label_tag(:password) %>
   <%= password_field_tag(:password) %>
+=======
+  <%= f.label(:password) %>
+  <%= f.password_field(:password) %>
 
-  <%= submit_tag("Log in", class: "btn btn-primary") %>
+
+  <%= f.submit("Log in", class: "btn btn-primary") %>
 <% end %>
 
 <%= link_to "Don't have an account? Sign up here", signup_path %>

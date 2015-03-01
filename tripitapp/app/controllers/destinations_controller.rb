@@ -3,6 +3,7 @@ class DestinationsController < ApplicationController
   before_action except: [:new, :create] do 
     find_destination @itinerary
   end
+  before_action :mandatory_login
 
   def new
   end
@@ -24,6 +25,14 @@ class DestinationsController < ApplicationController
 
   def delete
     redirect_to "/itineraries/#{@itinerary.id}"
+  end
+
+  def add_user
+    @available_users = @itinerary.users - @destination.users
+  end
+
+  def create_destination_user
+    @destination.users.create user_params
   end
 
   private
