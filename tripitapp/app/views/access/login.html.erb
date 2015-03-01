@@ -1,5 +1,4 @@
 <h1>Login Page/Root Route</h1>
-
 <%= form_tag(access_attempt_login_path, method: "post") do %>
   <%= label_tag(:username) %>
   <%= text_field_tag(:username, params[:username], autofocus: true) %>
