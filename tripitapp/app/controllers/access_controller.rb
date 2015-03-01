@@ -1,17 +1,20 @@
 class AccessController < ApplicationController
 
   before_action :mandatory_login, only: [
-                    :itinerary_destinations,
-                    :new_itinerary_destination, 
-                    :edit_itinerary_destination, 
-                    :itinerary_destination, 
-                    :itineraries,                 #index
-                    :new_itinerary, 
-                    :edit_itinerary, 
-                    :itinerary,                   #show
-                    :users_show, 
-                    :users_edit
+    :itinerary_destinations,
+    :new_itinerary_destination, 
+    :edit_itinerary_destination, 
+    :itinerary_destination, 
+    :itineraries,                 #index
+    :new_itinerary, 
+    :edit_itinerary, 
+    :itinerary,                   #show
+    :users_show, 
+    :users_edit
   ]
+  
+  before_action :prevent_login_signup, only: [:signup, :login]
+
   # before_action :user_params, only: [
   #   :create_user, 
   #   :login, 
@@ -73,19 +76,10 @@ def mandatory_login
   if session[:user_id].nil?
     redirect_to access_login_path
   end
-
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+def prevent_login_singup
+  if session[] != nil
+    redirect_to user_show_path
+  end
+end
