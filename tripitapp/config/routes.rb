@@ -5,17 +5,17 @@ Rails.application.routes.draw do
 
   root 'access#login'
 
-  get 'users/show', as: :user
+  get 'users/:id', to: "users#show", as: :user_show
 
-  get 'user/edit', as: :user_edit
+  get 'users/:id/edit', to: "users#user_edit", as: :user_edit
 
-  put 'user/update'
+  put 'users/:id/edit', to: "users#update"
 
   get 'access/login', as: :login
 
   get 'access/signup', as: :signup
 
-  post 'access/create', as: :create_user
+  post 'access/signup', to: "access#create_user", as: :signup_user
 
   post 'access/attempt_login'
 
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 end
 
 
-# Prefix Verb   URI Pattern                                                Controller#Action
+#     Prefix Verb   URI Pattern                                                Controller#Action
 #     itinerary_destinations GET    /itineraries/:itinerary_id/destinations(.:format)          destinations#index
 #                            POST   /itineraries/:itinerary_id/destinations(.:format)          destinations#create
 #  new_itinerary_destination GET    /itineraries/:itinerary_id/destinations/new(.:format)      destinations#new
@@ -42,10 +42,11 @@ end
 #                            PUT    /itineraries/:id(.:format)                                 itineraries#update
 #                            DELETE /itineraries/:id(.:format)                                 itineraries#destroy
 #                       root GET    /                                                          access#login
-#                       user GET    /users/show(.:format)                                      users#show
-#                  user_edit GET    /users/edit(.:format)                                      users#edit
-#                 users_edit PUT    /users/edit(.:format)                                      users#edit
+#                  user_show GET    /users/:id(.:format)                                       users#show
+#                  user_edit GET    /users/:id/edit(.:format)                                  users#user_edit
+#                            PUT    /users/:id/edit(.:format)                                  users#update
 #                      login GET    /access/login(.:format)                                    access#login
 #                     signup GET    /access/signup(.:format)                                   access#signup
 #                create_user POST   /access/create(.:format)                                   access#create
 #       access_attempt_login POST   /access/attempt_login(.:format)                            access#attempt_login
+#                     logout DELETE /logout(.:format)                                          access#logout
