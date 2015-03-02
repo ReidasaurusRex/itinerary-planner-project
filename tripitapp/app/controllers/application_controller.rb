@@ -10,7 +10,7 @@ before_action :mandatory_login, only: [
     :new_itinerary, 
     :edit_itinerary, 
     :itinerary,                   #show
-    :users_show, 
+    :user, 
     :users_edit
 ]
 
