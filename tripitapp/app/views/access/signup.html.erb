@@ -1,7 +1,5 @@
 <h1>Signup</h1>
 
-<%= form_for(@user, url: signup_path) do |f| %>
-
 <% flash.each do |key, value| %>
  <% if key == "notice" %>
    <%= content_tag :div, value, class: "text-center alert alert-warning" %>
@@ -13,10 +11,7 @@
 <% end %>
 
 <%= form_for @user, url: {action: "create_user"} do |f| %>
-
-
   <p>
-
     FirstName: <%= f.text_field(:first_name, autofocus: true, required: true) %>
     <br>
     LastName: <%= f.text_field(:last_name, required: true) %>
@@ -24,15 +19,8 @@
     Email: <%= f.text_field(:email, required: true) %>
     <br>
     UserName: <%= f.text_field(:username, required: true) %>
-  </p>
-  <p>
-
+    <br>
     Password: <%= password_field(:password, required: true) %>
-  </p>
-  <p>
-    <%= f.submit("Signup"), users_show_path %>
-
-    Password: <%= f.password_field(:password, required: true) %>
   </p>
   <p>
     <%= f.submit("Signup") %>
